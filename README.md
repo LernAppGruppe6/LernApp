@@ -56,4 +56,4 @@ flask run
 
 ## Troubleshooting
 
-1. `docker-compose down && docker-compose up -d`
+1. `docker-compose down && docker-compose up -d --build --force-recreate`
