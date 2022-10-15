@@ -45,6 +45,12 @@ Click on "ok", then click on "test connection".
 Then click on "ok". Your database should be connected and look like this!
 ![img_4.png](docs/images/img_4.png)
 
+## Install new dependencies
+
+Add new dependencies to `backend/Pipfile` and run `docker compose exec backend pipenv install {PACKAGE_NAME}`
+
+e.g. `docker compose exec backend pipenv install mysql-connector-python`
+
 ## Troubleshooting
 
 1. `docker-compose down && docker-compose up -d --build --force-recreate`
