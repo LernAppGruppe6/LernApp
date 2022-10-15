@@ -14,12 +14,12 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     volumes:
-      #- ./backend/docker/database/init:/docker-entrypoint-initdb.d
+      - ./backend/docker/database/init:/docker-entrypoint-initdb.d
     # Expose ports to be public, so one can connect to the
     # database tool with their gui of choice.
     # e.g. MySQL Workbench
     ports:
-      - "3308:3307"
+      - "3308:3306"
     networks:
       - default
 
