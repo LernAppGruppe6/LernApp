@@ -19,8 +19,13 @@ You can also clone manually using `git clone git@github.com:LernAppGruppe6/LernA
 To start the mysql database & the server you can use
 
 ```
-docker compose up -d
+docker compose up -d --build
 ```
+
+Your application is here:
+
+- Backend: http://localhost:8000/
+- Frontend: to be done
 
 
 ### Connect to Database
