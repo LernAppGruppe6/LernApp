@@ -6,6 +6,8 @@ services:
     build:
       dockerfile: backend/Dockerfile
       context: .
+    environment:
+      - FLASK_ENV=development
     volumes:
       # synchronize the backend folder into the /app folder of the docker image
       - ./backend:/app
