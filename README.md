@@ -32,10 +32,10 @@ Your application is here:
 
 Database server needs to be up & running (see "Start development").
 Connect to database from mySQL workbench: 
-Install mySQL workbench (see "Requirments: Install MySQL Workbench)
+Install mySQL workbench (see "Requirements: Install MySQL Workbench)
 Click on the "+" like you see in the img.
 ![img.png](docs/images/img.png)
-Fill in the connection name, hostname, port, username and deffault schema like you see in the img.
+Fill in the connection name, hostname, port, username and default schema like you see in the img.
 ![img_1.png](docs/images/img_1.png)
 Click on the "store in vault" button like you see in the img.
 ![img_2.png](docs/images/img_2.png)
