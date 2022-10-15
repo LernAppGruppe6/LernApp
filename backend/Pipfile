@@ -1,0 +1,9 @@
+[[source]]
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+
+[dev-packages]
+pytest = "*"
