@@ -45,15 +45,6 @@ Click on "ok", then click on "test connection".
 Then click on "ok". Your database should be connected and look like this!
 ![img_4.png](docs/images/img_4.png)
 
-
-### Start the backend
-
-Change to the `backend` directory and then
-
-```
-flask run
-```
-
 ## Troubleshooting
 
 1. `docker-compose down && docker-compose up -d --build --force-recreate`
