@@ -8,11 +8,14 @@ services:
       context: .
     environment:
       - FLASK_ENV=development
+      - FLASK_DEBUG=true
     volumes:
       # synchronize the backend folder into the /app folder of the docker image
       - ./backend:/app
     ports:
       - "8000:5000"
+    depends_on:
+      - db
     
   db:
     image: mysql
@@ -32,8 +35,6 @@ services:
     # e.g. MySQL Workbench
     ports:
       - "3308:3306"
-    networks:
-      - default
 
   phpmyadmin:
     image: phpmyadmin
@@ -42,6 +43,5 @@ services:
       - 8080:80
     environment:
       PMA_PORT: 3308
-
-networks:
-  default:
+    depends_on:
+      - db
