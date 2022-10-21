@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 import os
 import mysql.connector
@@ -11,6 +11,15 @@ Enable all resources for cross origin resource sharing to ease development.
 - Javascript should access the api
 """
 CORS(app, resources=r'*')
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
 
 @app.route("/")
 def hello_world():
