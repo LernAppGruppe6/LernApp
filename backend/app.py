@@ -46,7 +46,7 @@ def hello_world():
     for login in logins:
       res = res + login[0]
     
-    return "<p>Hello, World!</p>"+res
+    return "<p>LernApp</p>"+res
     
 # main driver function
 if __name__ == "__main__":

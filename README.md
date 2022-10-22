@@ -1,13 +1,16 @@
 # LernApp
 
-Gruppe6: Jannik Röhm, Jasmin Krewenka,
+Project for Wintersemester 22/23 Software-Praktikum. Create a LernApp where you can find lernpartners or groups for learning.  
+Gruppe 6: Jannik Röhm, Jasmin Krewenka, Paul Ehrlich, Premtim Osmani, Samira Salija, Dimitrios Saltsoelidis, Enes Tepeli
 
 ## Requirements
 
 - Install [Docker & Docker Compose](https://www.docker.com/products/docker-desktop/)
 - Install [MySQL Workbench](https://www.mysql.com/products/workbench/)
 - Install [GitHub Desktop](https://desktop.github.com/) or any other tool of choice
-- 
+
+Python Version: 3.10
+PyCharm Version: 2022.2.3
 
 ## Installation
 
