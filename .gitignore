@@ -1,5 +1,0 @@
-# Ignore pycharm files
-.idea/
-
-# Ignore python venv
-backend/__pycache__/
