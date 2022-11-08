@@ -1,7 +1,7 @@
 # LernApp
 
 Project for Wintersemester 22/23 Software-Praktikum. Create a LernApp where you can find lernpartners or groups for learning.  
-Gruppe 6: Jannik Röhm, Jasmin Krewenka, Paul Ehrlich, Premtim Osmani, Samira Salija, Dimitrios Saltsoelidis, Enes Tepeli
+Gruppe 6: Jannik Röhm, Jasmin Krewenka, Paul Ehrlich, Premtim Osmani, Samira Salija, Dimitrios Saltsoglidis, Enes Tepeli
 
 ## Requirements
 
