@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a3d837c-6c0e-471b-8226-c1fd7f61fdb2" name="Changes" comment="" />
+    <list default="true" id="2a3d837c-6c0e-471b-8226-c1fd7f61fdb2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/server/bo/NamedBusinessObject.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server/bo/NamedBusinessObject.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

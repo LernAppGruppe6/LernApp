@@ -2,8 +2,8 @@
 
 
 class NamedBusinessObject(BusinessObject):
-    """Basisklasse für alle Businessobjekte, welche einen Namen besitzen.
-       Jedes NamedBusinessObject hat einen Namen.
+    """
+    Base Class for all Businessobjects with a name.
     """
 
     def __init__(self):
