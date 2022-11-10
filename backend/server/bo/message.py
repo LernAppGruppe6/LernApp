@@ -1,20 +1,28 @@
-class Message:
-    """
-    Class Message, which implements a simple message with attributes for text_message.
-    """
+""" from server.bo.NamedBusinessObject import NamedBusinessObject    """
 
-    def _init_(self, text_message ):
+class Message(NamedBusinessObject):
+
+    def _init_(self, text_message, user_id, group_id ):
+        super().__init__()
         self._text_message = text_message
+        self._user_id = user_id
+        self._group_id = group_id
 
 
     def set_text_message(self, text_message: str):
-        """
-        Defines the text_message of a Message.
-        """
         self._text_message = text_message
 
     def get_text_message(self) -> str:
-        """
-        Returns the text_message of a message.
-        """
         return self._text_message
+
+    def set_user_id(self, user_id: int ):
+        self._user_id = user_id
+
+    def get_user_id(self) -> int:
+        return self._user_id
+
+    def set_group_id(self, group_id: int):
+        self._group_id = group_id
+
+    def get_group_id(self) -> int:
+        return self._group_id
