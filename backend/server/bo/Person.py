@@ -1,10 +1,14 @@
-class Person:
+#from server.bo.NamedBusinessObject import NamedBusinessobject
+
+class Person(NamedBusinessObject):
+
     """
     Class Person, which implements a simple person with attributes for firstname, lastname, email, username,
     google-id and semester.
     """
 
     def __init__(self, first_name, last_name, email, user_name, google_id, semester):
+        super().__init__()
         self._first_name = first_name
         self._last_name = last_name
         self._email = email
@@ -84,3 +88,25 @@ class Person:
         """
         return self._semester
 
+    def str(self):
+        """Converting the object's attribute values ​​to a string"""
+        return "Profile: {}, {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
+                                                                        self.get_name(), self.get_first_name(),
+                                                                        self.get_last_name(), self.get_email(),
+                                                                        self.get_user_name(), self.get_google_id(),
+                                                                        self.get_semester())
+
+    @staticmethod
+    def from_dict(dictionary):
+        """Converting a Python dict() to a User() object"""
+        obj = Person()
+        obj.set_id(dictionary["id"])
+        obj.set_creation_time(dictionary["creation_time"])
+        obj.set.name(dictionary["name"])
+        obj.set_first_name(dictionary["first_name"])
+        obj.set_last_name(dictionary["last_name"])
+        obj.set_email(dictionary["email"])
+        obj.set_user_name(dictionary["user_name"])
+        obj.set_google_id(dictionary["google_id"])
+        obj.set_semester(dictionary["semester"])
+        return obj
