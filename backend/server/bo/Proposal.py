@@ -24,7 +24,7 @@ class Proposal(NamedBusinessObject):
 
     def str(self):
         """Converting the object's attribute values ​​to a string"""
-        return "Profile: {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
+        return "Proposal: {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
                                                                         self.get_name(), self.get_profile_profosal(),
                                                                         self.get_matches())
 

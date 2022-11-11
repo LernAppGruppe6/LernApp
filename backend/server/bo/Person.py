@@ -90,7 +90,7 @@ class Person(NamedBusinessObject):
 
     def str(self):
         """Converting the object's attribute values ​​to a string"""
-        return "Profile: {}, {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
+        return "Person: {}, {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
                                                                         self.get_name(), self.get_first_name(),
                                                                         self.get_last_name(), self.get_email(),
                                                                         self.get_user_name(), self.get_google_id(),
