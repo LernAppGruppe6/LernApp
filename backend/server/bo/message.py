@@ -1,6 +1,6 @@
 """ from server.bo.NamedBusinessObject import NamedBusinessObject    """
 
-class Message(NamedBusinessObject):
+class Message (NamedBusinessObject):
 
     def _init_(self, text_message, user_id, group_id ):
         super().__init__()
