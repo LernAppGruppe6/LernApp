@@ -1,5 +1,4 @@
-import './App.css';
-import { signInWithGoogle } from "./services/fireBase"
+import { signInWithGoogle } from "./services/fireBase";
 
 function App() {
   return (
