@@ -1,6 +1,6 @@
 """ from server.bo.NamedBusinessObject import NamedBusinessObject    """
 
-class Message (NamedBusinessObject):
+class Message(NamedBusinessObject):
 
     def _init_(self, text_message, user_id, group_id ):
         super().__init__()
@@ -26,3 +26,20 @@ class Message (NamedBusinessObject):
 
     def get_group_id(self) -> int:
         return self._group_id
+
+    def str(self):
+        """Converting the object's attribute values ​​to a string"""
+        return "Message: {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
+                                                                        self.get_name(), self.get_text_message(),
+                                                                        self.get_user_id(), self.get_group_id())
+    @staticmethod
+    def from_dict(dictionary):
+        """Converting a Python dict() to a User() object"""
+        obj = Message()
+        obj.set_id(dictionary["id"])
+        obj.set_creation_time(dictionary["creation_time"])
+        obj.set.name(dictionary["name"])
+        obj.set_text_message(dictionary["text_message"])
+        obj.set_user_id(dictionary["user_id"])
+        obj.set_group_id(dictionary["get_group_id"])
+        return obj
