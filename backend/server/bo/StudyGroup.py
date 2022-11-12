@@ -1,6 +1,6 @@
 from server.bo.NamedBusinessObject import NamedBusinessObject
 
-class StudyGroup(NamedBusinessObject):
+class StudyGroup (NamedBusinessObject):
     pass
     """A class that should determine the Study Group of the participants"""
 
@@ -42,18 +42,17 @@ class StudyGroup(NamedBusinessObject):
     def set_group_profile(self, group_profile: str):
         self._group_profile = group_profile
 
+
+
+
     def str(self):
         """Converting the object's attribute values ​​to a string"""
-        return "StudyGroup: {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
-                                                                        self.get_name(), self.get_participant(),
-                                                                        self.get_max_participant(), self.get_participant_list(),
-                                                                        self.get_approved(),
-                                                                        self.get_group_profile())
+        return "StudyGroup: {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(), self.get_name(), self.get_participant(), self.get_max_participant(), self.get_participant_list(), self.get_approved(), self.get_group_profile())
 
 
     @staticmethod
     def from_dict(dictionary):
-        """Converting a Python dict() to a User() object"""
+        """Converting a Python dict() to a StudyGroup() object"""
         obj = StudyGroup()
         obj.set_id(dictionary["id"])
         obj.set_creation_time(dictionary["creation_time"])

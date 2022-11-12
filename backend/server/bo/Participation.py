@@ -1,7 +1,6 @@
 """from server.bo.NamedBusinessObject import NamedBusinessObject"""
 
-class Participation(NamedBusinessObject):
-    pass
+class Participation (NamedBusinessObject):
     "" "A class that should determine the status of the user."""
 
     def __init__(self, status, user_id, group_id):
@@ -36,7 +35,7 @@ class Participation(NamedBusinessObject):
 
     @staticmethod
     def from_dict(dictionary):
-        """Converting a Python dict() to a User() object"""
+        """Converting a Python dict() to a Participation() object"""
         obj = Participation()
         obj.set_name(dictionary["name"])
         obj.set_id(dictionary["id"])

@@ -1,6 +1,6 @@
 #from server.bo.NamedBusinessObject import NamedBusinessobject
 
-class Person(NamedBusinessObject):
+class Person (NamedBusinessObject):
 
     """
     Class Person, which implements a simple person with attributes for firstname, lastname, email, username,
@@ -98,7 +98,7 @@ class Person(NamedBusinessObject):
 
     @staticmethod
     def from_dict(dictionary):
-        """Converting a Python dict() to a User() object"""
+        """Converting a Python dict() to a Person() object"""
         obj = Person()
         obj.set_id(dictionary["id"])
         obj.set_creation_time(dictionary["creation_time"])

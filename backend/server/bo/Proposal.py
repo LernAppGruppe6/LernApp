@@ -1,6 +1,6 @@
 #from server.bo.NamedBusinessObject import NamedBusinessobject
 
-class Proposal(NamedBusinessObject):
+class Proposal (NamedBusinessObject):
     """
     Class Proposal, which implements a proposal with attributes for profile_proposals and matches.
     """
@@ -24,13 +24,11 @@ class Proposal(NamedBusinessObject):
 
     def str(self):
         """Converting the object's attribute values ​​to a string"""
-        return "Proposal: {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
-                                                                        self.get_name(), self.get_profile_profosal(),
-                                                                        self.get_matches())
+        return "Proposal: {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(), self.get_name(), self.get_profile_profosal(), self.get_matches())
 
     @staticmethod
     def from_dict(dictionary):
-        """Converting a Python dict() to a User() object"""
+        """Converting a Python dict() to a Proposal() object"""
         obj = Proposal()
         obj.set_id(dictionary["id"])
         obj.set_creation_time(dictionary["creation_time"])

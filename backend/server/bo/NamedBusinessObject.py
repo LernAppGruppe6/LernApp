@@ -1,7 +1,7 @@
 # from server.bo.BusinessObject import BusinessObject
 
 
-class NamedBusinessObject(BusinessObject):
+class NamedBusinessObject (BusinessObject):
     """
     Base Class for all Businessobjects with a name.
     """

@@ -1,7 +1,7 @@
-# from server.bo.BusinessObject import BusinessObject
+from server.bo.NamedBusinessObject import NamedBusinessObject
 
 
-class Profile (BusinessObject):
+class Profile (NamedBusinessObject):
     """
     Class Profile, which implements the profile attributes of an existing person.
     """
@@ -14,7 +14,7 @@ class Profile (BusinessObject):
         self._degree_program = ""     # the degree program of a person
         self._study_subject = ""      # the study subjects of a person
         self._content_interests = ""  # the content interests of a person
-        self._self_assesment = ""  # the self assesment of a person
+        self._self_assesment = ""     # the self assesment of a person
 
 
     def set_age(self, age):
@@ -77,7 +77,7 @@ class Profile (BusinessObject):
 
     def __str__(self):
         """Converting the object's attribute values ​​to a string"""
-        return "Profile: {}, {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(), self.get_age(), self.get_gender(), self.get_university(), self.get_degree_program(), self.get_study_subject(), self.get_content_interests(), self.get_self_assesment())
+        return "Profile: {}, {}, {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(), self.get_name(), self.get_age(), self.get_gender(), self.get_university(), self.get_degree_program(), self.get_study_subject(), self.get_content_interests(), self.get_self_assesment())
 
     @staticmethod
     def from_dict(dictionary):
@@ -85,6 +85,7 @@ class Profile (BusinessObject):
         obj = Profile()
         obj.set_id(dictionary["id"])
         obj.set_creation_time(dictionary["creation_time"])
+        obj.set_name(dictionary["name"])
         obj.set_age(dictionary["age"])
         obj.set_gender(dictionary["gender"])
         obj.set_university(dictionary["university"])
