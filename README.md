@@ -28,7 +28,7 @@ docker-compose up -d --build
 Your application is here:
 
 - Backend: http://localhost:8000/
-- Frontend: to be done
+- Frontend: http://localhost:3000
 
 
 ### Connect to Database
