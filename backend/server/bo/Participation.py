@@ -1,7 +1,7 @@
 """from server.bo.NamedBusinessObject import NamedBusinessObject"""
 
 class Participation (NamedBusinessObject):
-    "" "A class that should determine the status of the user."""
+    """A class that should determine the status of the user."""
 
     def __init__(self, status, user_id, group_id):
         super().__init__()
