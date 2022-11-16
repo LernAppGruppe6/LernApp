@@ -41,7 +41,7 @@ class Mapper (AbstractContextManager,ABC):
         pass
 
     @abstractmethod
-    def find_by_id(self, key):
+    def find_by_id(self, id):
         """Read a specific record using the key."""
         pass
 
