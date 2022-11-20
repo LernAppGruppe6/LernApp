@@ -19,7 +19,7 @@ class GroupMapper(Mapper):
 
         result = []
 
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM group")
         tuples = cursor.fetchall()
 
@@ -33,7 +33,7 @@ class GroupMapper(Mapper):
             group.set_frequency(frequency)
             group.set_subject_id(subject_id)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
@@ -46,7 +46,7 @@ class GroupMapper(Mapper):
         """
         result = None
 
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         command = "SELECT * FROM group WHERE id={}".format(key)
         cursor.execute(command)
         tuples = cursor.fetchall()
@@ -67,7 +67,7 @@ class GroupMapper(Mapper):
             keine Tupel liefert, sondern tuples = cursor.fetchall() eine leere Sequenz zurück gibt."""
             result = None
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
@@ -80,7 +80,7 @@ class GroupMapper(Mapper):
         """
         result = None
 
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         command = "SELECT * FROM group WHERE google_user_id='{}'".format(google_user_id)
         cursor.execute(command)
         tuples = cursor.fetchall()
@@ -101,7 +101,7 @@ class GroupMapper(Mapper):
             keine Tupel liefert, sondern tuples = cursor.fetchall() eine leere Sequenz zurück gibt."""
             result = None
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
@@ -115,7 +115,7 @@ class GroupMapper(Mapper):
         :return a study group object that identifies with the name
         """
         result = []
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         command = "SELECT * FROM group WHERE name={}".format(name)
         cursor.execute(command)
         tuples = cursor.fetchall()
@@ -131,7 +131,7 @@ class GroupMapper(Mapper):
             group.set_subject_id(subject_id)
             result.append(group)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
@@ -144,7 +144,7 @@ class GroupMapper(Mapper):
         :return a study group object that identifies with the name
         """
         result = []
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         command = "SELECT * FROM group WHERE creation_time={}".format(creation_time)
         cursor.execute(command)
         tuples = cursor.fetchall()
@@ -160,7 +160,7 @@ class GroupMapper(Mapper):
             group.set_subject_id(subject_id)
             result.append(group)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
@@ -172,7 +172,7 @@ class GroupMapper(Mapper):
         :return a study group object that identifies with the name
         """
         result = []
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         command = "SELECT * FROM group WHERE learning_preferences={}".format(learning_preferences)
         cursor.execute(command)
         tuples = cursor.fetchall()
@@ -188,14 +188,14 @@ class GroupMapper(Mapper):
             group.set_subject_id(subject_id)
             result.append(group)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
 
 
     def insert(self, group):
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         cursor.execute("SELECT MAX(id) AS maxid FROM group ")
         tuples = cursor.fetchall()
 
@@ -217,7 +217,7 @@ class GroupMapper(Mapper):
         data = (group.get_id(), group.get_creation_time(), group.get_name(), group.get_max_participantsl(), group.get_place_of_learning(), group.get_frequency(), group.get_subject_id())
         cursor.execute(command, data)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return group
@@ -226,23 +226,23 @@ class GroupMapper(Mapper):
         """
         Updating the new data of a study group object in the database
         """
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
 
         command = "UPDATE group " + "SET name=%s, max_participants=%s, place_of_learning=%s, frequency=%s WHERE id=%s"
         (group.get_id(), group.get_creation_time(), group.get_name(), group.get_max_participantsl(), group.get_place_of_learning(), group.get_frequency(), group.get_subject_id())
         cursor.execute(command, data)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
     def delete(self, group):
         """
         Deleting the data of a study group object in the database
         """
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
 
         command = "DELETE FROM group WHERE id={}".format(group.get_id())
         cursor.execute(command)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
