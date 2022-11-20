@@ -8,14 +8,14 @@ class Mapper (AbstractContextManager,ABC):
     """Abstract base class of all mapper-classes"""
 
     def __init__(self):
-        self._connector = None
+        self._connection = None
 
     def __enter__(self):
         """Specify what happens when you start working with the mapper"""
         if os.getenv('GAE_ENV', '').startswith('standard'):
             """Connection to Google Cloud. This is the connection between Google App Engine and Cloud SQL."""
 
-            self._connector = mysql.connector.connect(user="root",
+            self._connection = mysql.connector.connect(user="root",
                                                       password="",
                                                       unix_socket=""
                                                                   ":",
@@ -24,7 +24,7 @@ class Mapper (AbstractContextManager,ABC):
         else:
             """Connection to a local mysql database."""
 
-            self._connector = mysql.connector.connect(host="127.0.0.1",
+            self._connection = mysql.connector.connect(host="127.0.0.1",
                                                       user="root",
                                                       password="demo",
                                                       db="lernapp")
@@ -33,7 +33,7 @@ class Mapper (AbstractContextManager,ABC):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """Specify what happens when work with the mapper is finished."""
-        self._connector.close()
+        self._connection.close()
 
     @abstractmethod
     def find_all(self):

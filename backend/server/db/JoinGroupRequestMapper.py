@@ -19,7 +19,7 @@ class JoinGroupRequestMapper(Mapper):
 
         result = []
 
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM join_group_request")
         tuples = cursor.fetchall()
 
@@ -30,7 +30,7 @@ class JoinGroupRequestMapper(Mapper):
             participation.set_group_id(group_id)
             participation.set_accepted_at(accepted_at)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
@@ -38,7 +38,7 @@ class JoinGroupRequestMapper(Mapper):
     def find_by_id(self, key):
         result = None
 
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         command = "SELECT * FROM join_group_request WHERE id={}".format(key)
         cursor.execute(command)
         tuples = cursor.fetchall()
@@ -56,13 +56,13 @@ class JoinGroupRequestMapper(Mapper):
             keine Tupel liefert, sondern tuples = cursor.fetchall() eine leere Sequenz zurück gibt."""
             result = None
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return result
 
     def insert(self, participation):
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
         cursor.execute("SELECT MAX(id) AS maxid FROM join_group_request ")
         tuples = cursor.fetchall()
 
@@ -85,26 +85,26 @@ class JoinGroupRequestMapper(Mapper):
         data = (participation.get_id(), participation.get_student_id(), participation.get_group_id(), participation.get_accepted_at())
         cursor.execute(command, data)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
         return participation
 
     def update(self, key, participation):
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
 
         command = "UPDATE join_group_request " + "SET accepted_at=%s WHERE id=%s"
         data = (participation.get_id(), participation.get_student_id(), participation.get_group_id(), participation.get_accepted_at())
         cursor.execute(command, data)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
 
     def delete(self, participation):
-        cursor = self._connector.cursor()
+        cursor = self._connection.cursor()
 
         command = "DELETE FROM join_group_request WHERE id={}".format(participation.get_id())
         cursor.execute(command)
 
-        self._connector.commit()
+        self._connection.commit()
         cursor.close()
