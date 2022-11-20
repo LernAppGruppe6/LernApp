@@ -1,7 +1,6 @@
 from server.bo.NamedBusinessObject import NamedBusinessObject
 
 class StudyGroup (NamedBusinessObject):
-    pass
     """A class that should determine the Study Group of the participants"""
 
     def __init__(self,participant, max_participant, participant_list, approved, group_profile):
