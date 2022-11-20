@@ -1,4 +1,4 @@
-"""from server.bo.NamedBusinessObject import NamedBusinessObject"""
+from server.bo.NamedBusinessObject import NamedBusinessObject
 
 class Participation (NamedBusinessObject):
     """A class that should determine the status of the user."""

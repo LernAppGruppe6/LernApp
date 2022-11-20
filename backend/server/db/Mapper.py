@@ -41,18 +41,13 @@ class Mapper (AbstractContextManager,ABC):
         pass
 
     @abstractmethod
-    def find_by_id(self, id):
+    def find_by_id(self, key):
         """Read a specific record using the key."""
         pass
 
     @abstractmethod
     def find_by_name(self, name):
         """Read a specific record using the name."""
-        pass
-
-    @abstractmethod
-    def find_by_creation_time(self, creation_time):
-        """Read a specific record using the creation time."""
         pass
 
     @abstractmethod
@@ -66,6 +61,6 @@ class Mapper (AbstractContextManager,ABC):
         pass
 
     @abstractmethod
-    def delete(self, key):
+    def delete(self, object):
         """Delete a record using the key."""
         pass

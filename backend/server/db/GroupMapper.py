@@ -19,7 +19,7 @@ class GroupMapper(Mapper):
 
         result = []
 
-        cursor = self._connection.cursor()
+        cursor = self._connector.cursor()
         cursor.execute("SELECT * FROM group")
         tuples = cursor.fetchall()
 
@@ -33,27 +33,27 @@ class GroupMapper(Mapper):
             group.set_frequency(frequency)
             group.set_subject_id(subject_id)
 
-        self._connection.commit()
+        self._connector.commit()
         cursor.close()
 
         return result
 
 
-    def find_by_id(self, id):
+    def find_by_id(self, key):
         """
         read out a study group with a specific id.
         :return: a study group object that identifies with the id
         """
-
         result = None
 
-        cursor = self._cnx.cursor()
-        command = "SELECT id, name FROM group WHERE id='{}'".format(id)
+        cursor = self._connector.cursor()
+        command = "SELECT * FROM group WHERE id={}".format(key)
         cursor.execute(command)
         tuples = cursor.fetchall()
 
-        for (id, creation_time, name, max_participants, place_of_learning, frequency, subject_id) in tuples:
-            group = StudyGroup()
+        try:
+            (id, creation_time, name, max_participants, place_of_learning, frequency, subject_id) = tuples[0]
+            group = StudyGroup
             group.set_id(id)
             group.set_creation_time(creation_time)
             group.set_name(name)
@@ -61,12 +61,51 @@ class GroupMapper(Mapper):
             group.set_place_of_learning(place_of_learning)
             group.set_frequency(frequency)
             group.set_subject_id(subject_id)
-            result.append(group)
+            result = group
+        except IndexError:
+            """Der IndexError wird oben beim Zugriff auf tuples[0] auftreten, wenn der vorherige SELECT-Aufruf
+            keine Tupel liefert, sondern tuples = cursor.fetchall() eine leere Sequenz zurück gibt."""
+            result = None
 
-        self._cnx.commit()
+        self._connector.commit()
         cursor.close()
 
         return result
+
+
+    def find_by_google_user_id(self, google_user_id):
+        """
+        read out a study group with a specific id.
+        :return: a study group object that identifies with the id
+        """
+        result = None
+
+        cursor = self._connector.cursor()
+        command = "SELECT * FROM group WHERE google_user_id='{}'".format(google_user_id)
+        cursor.execute(command)
+        tuples = cursor.fetchall()
+
+        try:
+            (id, email, first_name, last_name, semester, course_of_study, age, gender, place_of_learning, frequency) = tuples[0]
+            group = StudyGroup
+            group.set_id(id)
+            group.set_creation_time(creation_time)
+            group.set_name(name)
+            group.set_max_participant(max_participants)
+            group.set_place_of_learning(place_of_learning)
+            group.set_frequency(frequency)
+            group.set_subject_id(subject_id)
+            result = group
+        except IndexError:
+            """Der IndexError wird oben beim Zugriff auf tuples[0] auftreten, wenn der vorherige SELECT-Aufruf
+            keine Tupel liefert, sondern tuples = cursor.fetchall() eine leere Sequenz zurück gibt."""
+            result = None
+
+        self._connector.commit()
+        cursor.close()
+
+        return result
+
 
 
     def find_by_name(self, name):
@@ -76,8 +115,8 @@ class GroupMapper(Mapper):
         :return a study group object that identifies with the name
         """
         result = []
-        cursor = self._connection.cursor()
-        command = "SELECT * FROM lerngruppen WHERE name={}".format(name)
+        cursor = self._connector.cursor()
+        command = "SELECT * FROM group WHERE name={}".format(name)
         cursor.execute(command)
         tuples = cursor.fetchall()
 
@@ -92,7 +131,7 @@ class GroupMapper(Mapper):
             group.set_subject_id(subject_id)
             result.append(group)
 
-        self._connection.commit()
+        self._connector.commit()
         cursor.close()
 
         return result
@@ -105,8 +144,8 @@ class GroupMapper(Mapper):
         :return a study group object that identifies with the name
         """
         result = []
-        cursor = self._connection.cursor()
-        command = "SELECT * FROM lerngruppen WHERE creation_time={}".format(creation_time)
+        cursor = self._connector.cursor()
+        command = "SELECT * FROM group WHERE creation_time={}".format(creation_time)
         cursor.execute(command)
         tuples = cursor.fetchall()
 
@@ -121,7 +160,7 @@ class GroupMapper(Mapper):
             group.set_subject_id(subject_id)
             result.append(group)
 
-        self._connection.commit()
+        self._connector.commit()
         cursor.close()
 
         return result
@@ -133,8 +172,8 @@ class GroupMapper(Mapper):
         :return a study group object that identifies with the name
         """
         result = []
-        cursor = self._connection.cursor()
-        command = "SELECT * FROM lerngruppen WHERE learning_preferences={}".format(learning_preferences)
+        cursor = self._connector.cursor()
+        command = "SELECT * FROM group WHERE learning_preferences={}".format(learning_preferences)
         cursor.execute(command)
         tuples = cursor.fetchall()
 
@@ -149,57 +188,61 @@ class GroupMapper(Mapper):
             group.set_subject_id(subject_id)
             result.append(group)
 
-        self._connection.commit()
+        self._connector.commit()
         cursor.close()
 
         return result
 
-    """ 
-    def find_group_by_google_user_id(self, key):
-    """
 
     def insert(self, group):
-        cursor = self._cnx.cursor()
+        cursor = self._connector.cursor()
         cursor.execute("SELECT MAX(id) AS maxid FROM group ")
         tuples = cursor.fetchall()
 
         for (maxid) in tuples:
             if maxid[0] is not None:
-                """Wenn wir eine maximale ID festellen konnten, zählen wir diese
-                um 1 hoch und weisen diesen Wert als ID dem User-Objekt zu."""
+                """
+                If a max ID is recognized, we count this
+                by 1 and assign this value as ID to the user object. 
+                """
                 group.set_id(maxid[0] + 1)
             else:
-                """Wenn wir KEINE maximale ID feststellen konnten, dann gehen wir
-                davon aus, dass die Tabelle leer ist und wir mit der ID 1 beginnen können."""
+                """
+                If a max ID is not recognized, we assume that the table is empty
+                and that we can start with 1 as ID. 
+                """
                 group.set_id(1)
 
         command = "INSERT INTO group (id, creation_time, name, max_participants, place_of_learning, frequency, subject_id) VALUES (%s,%s,%s,%s,%s,%s,%s)"
         data = (group.get_id(), group.get_creation_time(), group.get_name(), group.get_max_participantsl(), group.get_place_of_learning(), group.get_frequency(), group.get_subject_id())
         cursor.execute(command, data)
 
-        self._cnx.commit()
+        self._connector.commit()
         cursor.close()
 
         return group
 
-    def update(self, group):
-        cursor = self._cnx.cursor()
+    def update(self, key, group):
+        """
+        Updating the new data of a study group object in the database
+        """
+        cursor = self._connector.cursor()
 
         command = "UPDATE group " + "SET name=%s, max_participants=%s, place_of_learning=%s, frequency=%s WHERE id=%s"
         (group.get_id(), group.get_creation_time(), group.get_name(), group.get_max_participantsl(), group.get_place_of_learning(), group.get_frequency(), group.get_subject_id())
         cursor.execute(command, data)
 
-        self._cnx.commit()
+        self._connector.commit()
         cursor.close()
 
     def delete(self, group):
         """
         Deleting the data of a study group object in the database
         """
-        cursor = self._connection.cursor()
+        cursor = self._connector.cursor()
 
         command = "DELETE FROM group WHERE id={}".format(group.get_id())
         cursor.execute(command)
 
-        self._connection.commit()
+        self._connector.commit()
         cursor.close()

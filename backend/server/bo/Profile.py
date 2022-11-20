@@ -14,7 +14,7 @@ class Profile (NamedBusinessObject):
         self._degree_program = ""     # the degree program of a person
         self._study_subject = ""      # the study subjects of a person
         self._content_interests = ""  # the content interests of a person
-        self._self_assesment = ""     # the self assesment of a person
+        self._self_assesment = ""     # the self assessment of a person
 
 
     def set_age(self, age):
