@@ -76,7 +76,7 @@ class ConversationMapper(Mapper):
         cursor = self._connection.cursor()
         query = "INSERT INTO conversation (id, requesting_student_id, receiving_student_id, subject_id, accepted_at) VALUES (%s, %s, %s, %s, %s)"
         data = (
-            str(conversation._get_id(UUID(id))),
+            str(conversation._get_id()),
             conversation._get_requesting_student_id(),
             conversation._get_receiving_student_id(),
             conversation._get_subject_id(),
@@ -92,7 +92,7 @@ class ConversationMapper(Mapper):
         cursor = self._connection.cursor()
         query = "UPDATE conversation SET last_change=%s, occurence=%s WHERE id=%s"
         data = (
-            str(conversation._get_id(UUID(id))),
+            str(conversation._get_id()),
             conversation._get_requesting_student_id(),
             conversation._get_receiving_student_id(),
             conversation._get_subject_id(),
@@ -107,7 +107,7 @@ class ConversationMapper(Mapper):
         cursor = self._connection.cursor()
         query = "UPDATE conversation SET last_change=%s, occurence=%s WHERE id=%s"
         data = (
-            str(conversation._get_id(UUID(id))),
+            str(conversation._get_id()),
             conversation._get_requesting_student_id(),
             conversation._get_receiving_student_id(),
             conversation._get_subject_id(),
