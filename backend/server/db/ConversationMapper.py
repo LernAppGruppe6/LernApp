@@ -54,7 +54,7 @@ class ConversationMapper(Mapper):
     def find_by_subject_id(self, subject_id):
         result = None
         cursor = self._connection.cursor()
-        cursor.execute("SELECT subject_id FROM subject WHERE id='{}'".format(subject_id))
+        cursor.execute("SELECT subject_id FROM conversation WHERE id='{}'".format(subject_id))
         tuples = cursor.fetchall()
         try:
             (id, requesting_student_id, receiving_student_id, subject_id, accepted_at) = tuples[0]
