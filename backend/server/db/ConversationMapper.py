@@ -1,5 +1,5 @@
-from server.bo.Conversation import Conversation
-from server.db.Mapper import Mapper
+from ..bo import Conversation
+from . import Mapper
 from uuid import UUID
 
 
