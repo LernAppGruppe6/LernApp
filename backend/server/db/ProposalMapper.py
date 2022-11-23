@@ -1,5 +1,5 @@
-from server.bo.Proposal import Proposal
-from server.db.Mapper import Mapper
+from ..bo import Proposal
+from . import Mapper
 from uuid import UUID
 
 
@@ -68,7 +68,7 @@ class ProposalMapper(Mapper):
 
     def insert(self, proposal: Proposal):
         cursor = self._connection.cursor()
-        query = "INSERT INTO subject (id, profile_proposal, matches) VALUES (%s, %s, %s)"
+        query = "INSERT INTO proposal (id, profile_proposal, matches) VALUES (%s, %s, %s)"
         data = (
             str(proposal._get_id()),
             proposal._get_profile_proposal(),
