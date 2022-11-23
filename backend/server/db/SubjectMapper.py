@@ -17,7 +17,7 @@ class SubjectMapper(Mapper):
 
         for (id, name) in tuples:
             subject = Profile()
-            subject._set_id(id)
+            subject._set_id(UUID(id))
             subject._set_name(name)
             result.append(subject)
 
@@ -35,7 +35,7 @@ class SubjectMapper(Mapper):
         try:
             (id, name) = tuples[0]
             subject = Profile()
-            subject._set_id(id)
+            subject._set_id(UUID(id))
             subject._set_name(name)
             result = subject
         except IndexError:
@@ -53,7 +53,7 @@ class SubjectMapper(Mapper):
         try:
             (id, name) = tuples[0]
             subject = Profile()
-            subject._set_id(id)
+            subject._set_id(UUID(id))
             subject._set_name(name)
             result = subject
         except IndexError:
