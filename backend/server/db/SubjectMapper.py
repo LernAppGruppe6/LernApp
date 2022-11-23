@@ -1,5 +1,5 @@
-from server.bo.Profile import Profile
-from server.db.Mapper import Mapper
+from ..bo import Profile
+from . import Mapper
 from uuid import UUID
 
 
