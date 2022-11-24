@@ -1,4 +1,4 @@
-#from server.bo.NamedBusinessObject import NamedBusinessobject
+from . import NamedBusinessObject
 
 class Person (NamedBusinessObject):
 
