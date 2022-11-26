@@ -1,4 +1,5 @@
-""" from server.bo.NamedBusinessObject import NamedBusinessObject    """
+from .import NamedBusinessObject
+
 
 class Message(NamedBusinessObject):
 

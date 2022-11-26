@@ -1,5 +1,7 @@
-from server.bo.Message import Message
-from server.db.Mapper import Mapper
+from ..bo import LearningPreferences
+from . import Mapper
+from uuid import UUID
+
 
 
 class GroupMessageMapper(Mapper):
