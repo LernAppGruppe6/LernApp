@@ -2,21 +2,6 @@
 version: '3.1'
 
 services:
-  backend:
-    build:
-      dockerfile: backend/Dockerfile
-      context: .
-    environment:
-      - FLASK_ENV=development
-      - FLASK_DEBUG=true
-    volumes:
-      # synchronize the backend folder into the /app folder of the docker image
-      - ./backend:/app
-    ports:
-      - "8000:5000"
-    depends_on:
-      - db
-    
   db:
     image: mysql
     # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password

@@ -22,12 +22,23 @@ You can also clone manually using `git clone git@github.com:LernAppGruppe6/LernA
 To start the mysql database & the server you can use
 
 ```
-docker-compose up -d --build
+docker-compose up -d --force-recreate
+cd backend
+pipenv install
+pipenv shell
+pipenv run flask --debug run --host=0.0.0.0 --debugger
 ```
+
+Install npm dependencies
+
+````
+cd frontend
+npm install
+````
 
 Your application is here:
 
-- Backend: http://localhost:8000/
+- Backend: http://localhost:5000/ (API-Docs)
 - Frontend: http://localhost:3000
 
 
@@ -50,9 +61,9 @@ Then click on "ok". Your database should be connected and look like this!
 
 ## Install new dependencies
 
-Add new dependencies to `backend/Pipfile` and run `docker compose exec backend pipenv install {PACKAGE_NAME}`
+Add new dependencies by using `pipenv install {package-you-want-to-install}`
 
-e.g. `docker compose exec backend pipenv install mysql-connector-python`
+e.g. `pipenv install mysql-connector-python`
 
 ## Troubleshooting
 

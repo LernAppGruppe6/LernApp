@@ -2,3 +2,6 @@
 .idea/
 node_modules/
 .DS_Store
+
+# Ignore caches
+backend/__pycache__/
