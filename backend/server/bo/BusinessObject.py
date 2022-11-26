@@ -7,7 +7,13 @@ class BusinessObject (ABC):
     """
 
     def __init__(self):
-        self._id = 0
+        """
+        None is better than 0 because if I want to persist
+        the object using the mapper, it can detect if the object was
+        already inserted.
+        It does not make sense to insert an already existing object twice.
+        """
+        self._id = None
         self._creation_time = datetime.now()
 
     def set_id(self, id: int):

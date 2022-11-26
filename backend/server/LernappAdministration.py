@@ -5,10 +5,10 @@ from ..server.bo import Conversation
 from ..server.bo import LearningPreferences
 from ..server.bo import Message
 from ..server.bo import Participation
-from ..server.bo import Person
+from ..server.bo import Student
 from ..server.bo import Profile
 from ..server.bo import Proposal
-from ..server.bo import StudyGroup
+from ..server.bo import Group
 
 from ..server.db import ConversationMapper
 from ..server.db import GroupMapper

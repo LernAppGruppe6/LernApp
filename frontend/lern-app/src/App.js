@@ -7,6 +7,8 @@ function App() {
       <button onClick={signInWithGoogle}>Sign In with Google</button>
       <h1>{localStorage.getItem("name")}</h1>
       <h1>{localStorage.getItem("email")}</h1>
+
+      <img src={localStorage.getItem('profilPic')} />
       
     </div>
   );

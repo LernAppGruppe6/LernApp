@@ -1,9 +1,9 @@
-# from server.bo.BusinessObject import BusinessObject
+from . import BusinessObject
 
 
-class NamedBusinessObject (BusinessObject):
+class NamedBusinessObject(BusinessObject):
     """
-    Base Class for all Businessobjects with a name.
+    Base Class for all BusinessObjects with a name.
     """
 
     def __init__(self):
@@ -16,4 +16,3 @@ class NamedBusinessObject (BusinessObject):
     def get_name(self):
         """Return of a name."""
         return self._name
-

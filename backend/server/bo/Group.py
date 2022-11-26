@@ -1,6 +1,6 @@
 from server.bo.NamedBusinessObject import NamedBusinessObject
 
-class StudyGroup (NamedBusinessObject):
+class Group (NamedBusinessObject):
     """A class that should determine the Study Group of the participants"""
 
     def __init__(self,participant, max_participant, participant_list, approved, group_profile):
@@ -52,7 +52,7 @@ class StudyGroup (NamedBusinessObject):
     @staticmethod
     def from_dict(dictionary):
         """Converting a Python dict() to a StudyGroup() object"""
-        obj = StudyGroup()
+        obj = Group()
         obj.set_id(dictionary["id"])
         obj.set_creation_time(dictionary["creation_time"])
         obj.set_name(dictionary["name"])
