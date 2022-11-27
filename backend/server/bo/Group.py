@@ -1,4 +1,4 @@
-from server.bo.NamedBusinessObject import NamedBusinessObject
+from . import NamedBusinessObject
 
 class Group (NamedBusinessObject):
     """A class that should determine the Study Group of the participants"""
