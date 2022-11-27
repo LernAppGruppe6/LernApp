@@ -1,4 +1,4 @@
-#from server.bo.NamedBusinessObject import NamedBusinessObject
+from . import NamedBusinessObject
 
 class Conversation (NamedBusinessObject):
     """A class that should determine the conversation between the participants"""
