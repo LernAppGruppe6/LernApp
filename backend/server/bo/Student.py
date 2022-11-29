@@ -110,15 +110,20 @@ class Student:
                                                                    self.get_google_id(), self.get_semester())
 
     @staticmethod
-    def from_dict(dictionary):
-        """Converting a Python dict() to a Person() object"""
-        obj = Student()
-        obj.set_id(dictionary["id"])
-        obj.set_creation_time(dictionary["creation_time"])
-        obj.set_name(dictionary["name"])
-        obj.set_first_name(dictionary["first_name"])
-        obj.set_last_name(dictionary["last_name"])
-        obj.set_email(dictionary["email"])
-        obj.set_google_id(dictionary["google_id"])
-        obj.set_semester(dictionary["semester"])
-        return obj
+    def from_database_row(dictionary):
+        """
+        Converting a Python dict() containing all our database columns to a Person() object
+        """
+
+        student = Student(
+            dictionary["email"],
+            dictionary["first_name"],
+            dictionary["last_name"],
+            dictionary["email"],
+            dictionary["email"],  # TODO: check whats the google id
+            dictionary["age"],
+            dictionary["semester"],
+        )
+        student.set_id(dictionary["id"])
+
+        return student
