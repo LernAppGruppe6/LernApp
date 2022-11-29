@@ -22,6 +22,7 @@ You can also clone manually using `git clone git@github.com:LernAppGruppe6/LernA
 To start the mysql database & the server you can use
 
 ```
+docker-compose down
 docker-compose up -d --force-recreate
 cd backend
 pipenv install
