@@ -7,13 +7,14 @@ class Student:
     google-id and semester.
     """
 
-    def __init__(self, name, first_name, last_name, email, google_id, semester):
+    def __init__(self, name, first_name, last_name, email, google_id, age, semester):
         self._id = None
         self._name = name
         self._first_name = first_name
         self._last_name = last_name
         self._email = email
         self._google_id = google_id
+        self._age = age
         self._semester = semester
         #self._creation_time = datetime.now()
 

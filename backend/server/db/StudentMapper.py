@@ -21,7 +21,8 @@ class StudentMapper(Mapper):
             last_name,
             email,
             email,  # TODO: check whats the google id
-            semester
+            age,
+            semester,
         )
         student.set_id(id)
 

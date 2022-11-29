@@ -41,7 +41,8 @@ studentMarshaller = api.model('Student', {
     # TODO: pass all required fields to React
     'id': fields.Integer(attribute='_id'),
     'first_name': fields.String(attribute='_first_name', description='First name'),
-    'last_name': fields.String(attribute='_last_name', description='Last name')
+    'last_name': fields.String(attribute='_last_name', description='Last name'),
+    'age': fields.String(attribute='_age', description="Age")
 })
 
 
@@ -84,7 +85,8 @@ class Students(Resource):
         api.model('Student Creation', {
             'email': fields.String(attribute='_email'),
             'first_name': fields.String(attribute='_first_name', description='First name'),
-            'last_name': fields.String(attribute='_last_name', description='Last name')
+            'last_name': fields.String(attribute='_last_name', description='Last name'),
+            'age': fields.Integer(attribute='_age', description='Age'),
         })
     )
     def post(self):
@@ -107,7 +109,8 @@ class Students(Resource):
                 creation["last_name"],
                 creation["email"],  # TODO: check
                 creation["email"],  # TODO: check
-                5  # TODO: check
+                5,  # TODO: check
+                creation["age"]
             ))
 
 
