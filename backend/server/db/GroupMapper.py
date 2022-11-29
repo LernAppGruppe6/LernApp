@@ -1,5 +1,6 @@
-from server.bo.StudyGroup import StudyGroup
-from server.db.Mapper import Mapper
+from .Mapper import Mapper
+from .NotFoundException import NotFoundException
+from  ..bo.Group import Group
 
 
 class GroupMapper(Mapper):
@@ -10,6 +11,22 @@ class GroupMapper(Mapper):
 
     def __init__(self):
         super().__init__()
+
+    """
+    Create a Group object from the db data
+    """
+    def _map_database_fields_to_group(self, id, student_id, subject_id, max_members,
+                                      place_of_learning, frequency) -> Group:
+        group = Group(
+            student_id,
+            subject_id,
+            max_members,
+            place_of_learning,
+            frequency
+        )
+        group.set_id(id)
+
+        return group
 
     def find_all(self):
         """

@@ -1,15 +1,40 @@
-from . import NamedBusinessObject
 
-class Group (NamedBusinessObject):
+
+class Group ():
     """A class that should determine the Study Group of the participants"""
 
-    def __init__(self,participant, max_participant, participant_list, approved, group_profile):
-        super().__init__
+    def __init__(self,name, participant, max_participant, participant_list, approved, group_profile):
+        self._id = None
+        self._name = name
         self._participant = participant
         self._max_participant = max_participant
         self._participant_list = participant_list
         self._approved = approved
         self._group_profile = group_profile
+
+    def set_id(self, id: int):
+        """Defining a id."""
+        self._id = id
+
+    def get_id(self) -> int:
+        """Return of an id."""
+        return self._id
+
+    #def set_creation_time(self, creation_time: datetime):
+    #    """Defining a creation time."""
+    #    self._creation_time = creation_time
+
+    #def get_creation_time(self) -> datetime:
+    #    """Return of a creation time as a string."""
+    #    return self._creation_time
+
+    def set_name(self, name):
+        """Defining a name."""
+        self._name = name
+
+    def get_name(self):
+        """Return of a name."""
+        return self._name
 
     def get_participant(self) -> str:
         return self._participant
@@ -45,8 +70,12 @@ class Group (NamedBusinessObject):
 
 
     def str(self):
-        """Converting the object's attribute values ​​to a string"""
-        return "StudyGroup: {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(), self.get_name(), self.get_participant(), self.get_max_participant(), self.get_participant_list(), self.get_approved(), self.get_group_profile())
+        """Converting the object's attribute values to a string"""
+        return "StudyGroup: {}, {}, {}, {}, {}, {}, {}, {}".format(self.get_id(), self.get_creation_time(),
+                                                                   self.get_name(), self.get_participant(),
+                                                                   self.get_max_participant(),
+                                                                   self.get_participant_list(), self.get_approved(),
+                                                                   self.get_group_profile())
 
 
     @staticmethod
