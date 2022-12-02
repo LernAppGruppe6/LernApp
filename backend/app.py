@@ -42,7 +42,13 @@ studentMarshaller = api.model('Student', {
     'id': fields.Integer(attribute='_id'),
     'first_name': fields.String(attribute='_first_name', description='First name'),
     'last_name': fields.String(attribute='_last_name', description='Last name'),
-    'age': fields.String(attribute='_age', description="Age")
+    'age': fields.String(attribute='_age', description="Age"),
+    'gender': fields.String(attribute='_gender', description="Gender"),
+    'university': fields.String(attribute='_university', description="University"),
+    'degree_program': fields.String(attribute='_degree_program', description="Degree Program"),
+    'content_interests': fields.String(attribute='_content_interests', description="Content Interests"),
+    'self_assesment': fields.String(attribute='_self_assesment', description="Self Assesment"),
+    'semester': fields.String(attribute='_semester', description="Semester"),
 })
 
 
@@ -110,7 +116,8 @@ class Students(Resource):
                 creation["email"],  # TODO: check
                 creation["email"],  # TODO: check
                 5,  # TODO: check
-                creation["age"]
+                creation["age"],
+                creation["gender"]
             ))
 
 

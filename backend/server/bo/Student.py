@@ -7,7 +7,9 @@ class Student:
     google-id and semester.
     """
 
-    def __init__(self, name, first_name, last_name, email, google_id, age, semester):
+    def __init__(self, name, first_name, last_name, email, google_id, age, gender, university,
+                degree_program, study_subject, content_interests, self_assesment,  semester):
+
         self._id = None
         self._name = name
         self._first_name = first_name
@@ -15,6 +17,12 @@ class Student:
         self._email = email
         self._google_id = google_id
         self._age = age
+        self.gender = gender
+        self.university = university
+        self.degree_programm = degree_program
+        self.study_subject = study_subject
+        self.content_interests = content_interests
+        self.self_assesment = self_assesment
         self._semester = semester
         #self._creation_time = datetime.now()
 
@@ -122,6 +130,11 @@ class Student:
             dictionary["email"],
             dictionary["email"],  # TODO: check whats the google id
             dictionary["age"],
+            dictionary["university"],
+            dictionary["degree_program"],
+            dictionary["study_subject"],
+            dictionary["content_interests"],
+            dictionary["self_assesment"],
             dictionary["semester"],
         )
         student.set_id(dictionary["id"])
