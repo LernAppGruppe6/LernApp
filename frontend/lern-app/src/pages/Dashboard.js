@@ -1,16 +1,24 @@
-import React from 'react'
-import { Paper, Typography, Link } from '@mui/material';
+import React from "react";
+import Container from "@mui/material/Container";
+import { Box } from "@mui/system";
 
-/**
- * Shows the about page with the impressum
- * 
- * @author [Christoph Kunz](https://github.com/christophkunz)
- */
-function Dashboard() {
 
-  return (
-    <div className="Dashboard"></div>
-  );
+class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+  render() {
+    return (
+      <Container style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }} maxWidth={false}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginBottom: 1, flexWrap: 'wrap' }}>
+        </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginBottom: 1, flexWrap: 'wrap' }} >
+          <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', marginLeft: 2 }}>
+          </Box>
+        </Box>
+      </Container>
+    );
+  }
 }
-
-export default Dashboard;
