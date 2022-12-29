@@ -6,7 +6,6 @@ import LearningPreferenceBO from './LearningPreferenceBO';
 import MessageBO from './MessageBO';
 import ProposalBO from './ProposalBO';
 import StudentBO from './StudentBO';
-import StudentBO from './StudentBO';
 import StudentKnowledgeBO from './StudentKnowledgeBO';
 import SubjectBO from './SubjectBO';
 
@@ -21,7 +20,6 @@ export default class API {
 
   //Conversation related
   #getConversationsURL = () => `${this.#ServerBaseURL}/conversations`;
-  #getConversationURL = (id) => `${this.#ServerBaseURL}/conversations/${id}`;
   #getConversationURL = (id) => `${this.#ServerBaseURL}/conversations/${id}`;
   #updateConversationURL = (id) => `${this.#ServerBaseURL}/conversations/${id}`;
   #deleteConversationURL = (id) => `${this.#ServerBaseURL}/conversations/${id}`;
