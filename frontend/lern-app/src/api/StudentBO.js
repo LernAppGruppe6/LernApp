@@ -1,7 +1,7 @@
 import BusinessObject from "./BusinessObject";
 
 class StudentBO extends BusinessObject {
-  constructor(aFirstName, aLastName, aEmail) {
+  constructor(aFirstName, aLastName, aEmail, aUserName) {
     super();
     this.first_name = aFirstName;
     this.last_name = aLastName;
