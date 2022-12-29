@@ -6,7 +6,8 @@
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
-    "firebase": "^9.14.0"
+    "firebase": "^9.14.0",
+    "react-router-dom": "^6.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
