@@ -1,15 +1,27 @@
-import React from "react";
-import { signInWithGoogle } from "./services/fireBase";
+import Header from "./pages/layout/Header";
+import SignIn from "./pages/SignIn"
+import Learngroup from "./pages/LernGroup";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+import { Route, Routes } from "react-router-dom"
 
-const App = () => {
-
+function App() {
   return (
-    <div className="App">
-    <h1>LernApp</h1>
-    <button onClick={signInWithGoogle}>Sign In with Google</button>
-    <h1>{localStorage.getItem("name")}</h1>  
+    <> 
+    <div className="signin">
+    <Header />
+    <Routes>
+      <Route path="signin" element={<SignIn />}/>
+      <Route path="dashboard" element={<Dashboard />}/>
+      <Route path="profile" element={<Profile />}/>
+      <Route path="learngroup" element={<Learngroup />}/>
+    </Routes>
+    <ul>
+    </ul>
     </div>  
-  );
+    <div className="container"></div>
+    </>
+    );
 
 };
 export default App;
