@@ -8,7 +8,7 @@ export default function Header() {
             </Link>
         <ul>
           <CustomLink to="/signin">SignIn</CustomLink>
-          <CustomLink to="/learngroup">Learngroup</CustomLink>
+          <CustomLink to="/dashboard">Dashboard</CustomLink>
           <CustomLink to="/profile">Profile</CustomLink>
           <CustomLink to="/message">Message</CustomLink>
           <CustomLink to="/learngroup">Learngroup</CustomLink>
