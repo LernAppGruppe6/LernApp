@@ -8,37 +8,39 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 
-function MessageList(
+function ContactList(
     name: name,
-    status: name,
-    messagecontent: text,
-    priority: name,
+    commonsubject: number,
+    semester: number,
+    similarities: number,
+    university: name,
   ) {
-  return { status, name, messagecontent, priority };
+  return { name, commonsubject, semester, similarities, university };
 }
 
 const rows = [
-    MessageList('Lisa Müller', 'unread', 'Hello, .... ', 'high'),
-    MessageList('Bertha Meier', 'unread', 'Hi, my name is....', 'high'),
-    MessageList('Hans Schneider', 'read', 'Hi....', 'normal'),
-    MessageList('Peter Schmitt', 'read', 'yes...', 'normal'),
-    MessageList('Gerta Trumpf', ' read', 'no...', 'low'),
+  ContactList('Lisa Müller', 'Sopra', 6, 2, 'Hochschule der Medien'),
+  ContactList('Bertha Meier', 'UXD', 4, 3, 'Hochschule der Medien'),
+  ContactList('Hans Schneider', 'Webtechnology', 3, 2, 'Universität Stuttgart'),
+  ContactList('Peter Schmitt', 'Data Science', 5, 1.0, 'Hochschule der Medien'),
+  ContactList('Gerta Trumpf', 'Software Engineering', 4, 2, 'Hochschule der Medien'),
 ];
 
 export default function DenseTable() {
   return (
     <>
     <Typography gutterBottom variant="h5" component="div">
-        All Messages
+       networked contacts
        </Typography>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">Status </TableCell>
-            <TableCell align="right">Message Content</TableCell>
-            <TableCell align="right">Priority</TableCell>
+            <TableCell align="right">Common Subject</TableCell>
+            <TableCell align="right">Semester</TableCell>
+            <TableCell align="right">Similarities</TableCell>
+            <TableCell align="right">University</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,9 +52,10 @@ export default function DenseTable() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.status}</TableCell>
-              <TableCell align="right">{row.messagecontent}</TableCell>
-              <TableCell align="right">{row.priority}</TableCell>
+              <TableCell align="right">{row.commonsubject}</TableCell>
+              <TableCell align="right">{row.semester}</TableCell>
+              <TableCell align="right">{row.similarities}</TableCell>
+              <TableCell align="right">{row.university}</TableCell>
             </TableRow>
           ))}
         </TableBody>
