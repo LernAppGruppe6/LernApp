@@ -1,14 +1,14 @@
 import * as React from 'react';
 import HeaderMessage from '../components/HeaderMessage';
-import ProfileCard from '../components/ProfileCard';
 import Proposal from '../components/Proposal';
+import Contact from '../components/Contact'
 
 export default function Dashboard() {
   return (
     <>
-      <HeaderMessage />
+    <HeaderMessage />
     <Proposal />
-    <ProfileCard />
+    <Contact />
     </>
 
 
