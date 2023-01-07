@@ -1,14 +1,14 @@
 import * as React from 'react';
-import ContactList from '../components/ContactList'
 import HeaderMessage from '../components/HeaderMessage';
 import ProfileCard from '../components/ProfileCard';
+import Proposal from '../components/Proposal';
 
 export default function Dashboard() {
   return (
     <>
-    < ContactList />
+      <HeaderMessage />
+    <Proposal />
     <ProfileCard />
-    <HeaderMessage />
     </>
 
 
