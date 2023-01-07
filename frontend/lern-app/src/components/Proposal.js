@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-
+import MessageIcon from '@mui/icons-material/Message';
 
 function Proposal(
     name: name,
@@ -20,11 +20,11 @@ function Proposal(
 }
 
 const rows = [
-    Proposal('Hans Maler', 'Sopra' , '70%', <Button size="small">Contact</Button>),
-    Proposal('Henrik Bauer', 'Webtec', '90%', <Button size="small">Contact</Button>),
-    Proposal('Thorsten Schneider', 'Data Science', '60%',<Button size="small">Contact</Button>),
-    Proposal('Hennry Schröder', 'Business Intelligence', '75%', <Button size="small">Contact</Button> ),
-    Proposal('Bernd Wolf', 'Sopra', '80%',<Button size="small">Contact</Button>),
+    Proposal('Hans Maler', 'Sopra' , '70%', <Button  size="small"><MessageIcon /></Button>),
+    Proposal('Henrik Bauer', 'Webtec', '90%', <Button size="small"><MessageIcon /></Button>),
+    Proposal('Thorsten Schneider', 'Data Science', '60%',<Button size="small"><MessageIcon /></Button>),
+    Proposal('Hennry Schröder', 'Business Intelligence', '75%', <Button size="small"><MessageIcon /></Button> ),
+    Proposal('Bernd Wolf', 'Sopra', '80%',<Button size="small"><MessageIcon /></Button>),
 ];
 
 export default function DenseTable() {
