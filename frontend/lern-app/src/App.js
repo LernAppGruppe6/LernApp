@@ -5,12 +5,13 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Message from "./pages/Message";
 import { Route, Routes } from "react-router-dom"
-
-
+import { ThemeProvider } from "@mui/material";
+import Theme from "./Theme";
 
 function App() {
   return (
     <> 
+    <ThemeProvider theme={Theme}>
     <div className="signin">
     <Header />
     <Routes>
@@ -24,6 +25,7 @@ function App() {
     </ul>
     </div>  
     <div className="container"></div>
+    </ThemeProvider>
     </>
     );
 
