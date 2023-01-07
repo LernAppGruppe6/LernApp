@@ -8,23 +8,43 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import CheckIcon from '@mui/icons-material/Check';
+import Button from '@mui/material/Button';
 import ClearIcon from '@mui/icons-material/Clear';
+
+class Request extends React.Component {
+  handleClick(){
+    console.log('this is:', this);
+  }
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={() => this.handleClick()}>
+        Click me
+      </button>
+    );
+  }
+}
 
 function Requests(
     name: name,
     messagecontent: text,
     answer: name,
+
   ) {
   return { name, messagecontent, answer };
 }
 
+
 const rows = [
-    Requests('Benni Mayer', 'Hello, .... ', <CheckIcon fontSize="small" />,<ClearIcon fontSize="small" />),
-    Requests('Helmut Lohberg', 'Hi, my name is...', <CheckIcon fontSize="small" />, <ClearIcon fontSize="small" />),
-    Requests('Sebastian Schmidt', 'Hi....', <CheckIcon fontSize="small" />, <ClearIcon fontSize="small" /> ),
-    Requests('Thomas Müller', 'yes...', <CheckIcon fontSize="small" />, <ClearIcon fontSize="small" />),
-    Requests('Gerta Trumpf', 'Hey, i like...', <CheckIcon fontSize="small" />, <ClearIcon fontSize="small" />),
+  
+  Requests('Benni Mayer', 'Hello, .... ', <Button onClick={() => this.handleClick()}><CheckIcon fontSize="small" /></Button>,<Button size="small"><ClearIcon fontSize="small" /></Button>),
+  Requests('Helmut Lohberg', 'Hi, my name is...', <Button onClick={() => this.handleClick()}><CheckIcon fontSize="small" /></Button>,<Button size="small"><ClearIcon fontSize="small" /></Button>),
+  Requests('Sebastian Schmidt', 'Hi....', <Button onClick={() => this.handleClick()}><CheckIcon fontSize="small" /></Button>,<Button size="small"><ClearIcon fontSize="small" /></Button>),
+  Requests('Thomas Müller', 'yes...',<Button onClick={() => this.handleClick()}><CheckIcon fontSize="small" /></Button>,<Button size="small"><ClearIcon fontSize="small" /></Button>),
+  Requests('Gerta Trumpf', 'Hey, i like...',<Button onClick={() => this.handleClick()}><CheckIcon fontSize="small" /></Button>,<Button size="small"><ClearIcon fontSize="small" /></Button>),
 ];
+
+
 
 export default function DenseTable() {
   return (
@@ -60,4 +80,6 @@ export default function DenseTable() {
     </TableContainer>
     </>
   );
+
+ 
 }
