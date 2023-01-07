@@ -5,16 +5,17 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import SaveIcon from '@mui/icons-material/Save';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function ProfileCard() {
 
   return (
     <>
-    <Card sx={{ maxWidth: 350, float: 'left',}}>
+    <Card style={{ width: '50%', height: '35rem', float: 'left' }}>
       
       <CardContent>
-        <AddPhotoAlternateIcon orientation="top" class="fa-solid fa-camera fa-4x">
-        </AddPhotoAlternateIcon>
+      <Button  size="small"><AddPhotoAlternateIcon style={{ width: '15rem', height: '20rem' }}/></Button>
         <Typography gutterBottom variant="h5" component="div">
         generally 
         </Typography>
@@ -40,11 +41,11 @@ export default function ProfileCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Edit</Button>
-        <Button size="small"> Delete</Button>
+        <Button size="small"><EditIcon /></Button>
+        <Button size="small"> <SaveIcon /> </Button>
       </CardActions>
       </Card>  
-      <Card sx={{ maxWidth: 350, float: 'left' }}>
+      <Card style={{ width: '50%', height: '35rem', float: 'right'}}>
      
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -85,8 +86,8 @@ export default function ProfileCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Edit</Button>
-        <Button size="small"> Delete</Button>
+        <Button size="small">< EditIcon /></Button>
+        <Button size="small"> < SaveIcon /></Button>
       </CardActions>
       </Card>  
       </>
