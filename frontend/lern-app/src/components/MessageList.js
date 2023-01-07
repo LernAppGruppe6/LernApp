@@ -7,22 +7,27 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
+
 
 function MessageList(
     name: name,
     status: name,
     messagecontent: text,
     priority: name,
+    action: delete,
   ) {
-  return { status, name, messagecontent, priority };
+  return { status, name, messagecontent, priority, action };
 }
 
 const rows = [
-    MessageList('Lisa Müller', 'unread', 'Hello, .... ', 'high'),
-    MessageList('Bertha Meier', 'unread', 'Hi, my name is....', 'high'),
-    MessageList('Hans Schneider', 'read', 'Hi....', 'normal'),
-    MessageList('Peter Schmitt', 'read', 'yes...', 'normal'),
-    MessageList('Gerta Trumpf', ' read', 'no...', 'low'),
+    MessageList('Lisa Müller', 'unread', 'Hello, .... ', 'high', <button onClick={(e) => this.deleteRow(e)}><DeleteIcon /></button>),
+    MessageList('Bertha Meier', 'unread', 'Hi, my name is....', 'high',  <button onClick={(e) => this.deleteRow(e)}><DeleteIcon /></button>),
+    MessageList('Hans Schneider', 'read', 'Hi....', 'normal',  <button onClick={(e) => this.deleteRow(e)}><DeleteIcon /></button>),
+    MessageList('Peter Schmitt', 'read', 'yes...', 'normal',  <button onClick={(e) => this.deleteRow(e)}><DeleteIcon /></button>),
+    MessageList('Gerta Trumpf', ' read', 'no...', 'low',  <button onClick={(e) => this.deleteRow(e)}><DeleteIcon /></button>),
 ];
 
 export default function DenseTable() {
@@ -39,6 +44,7 @@ export default function DenseTable() {
             <TableCell align="right">Status </TableCell>
             <TableCell align="right">Message Content</TableCell>
             <TableCell align="right">Priority</TableCell>
+            <TableCell align="right"></TableCell>            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -53,6 +59,7 @@ export default function DenseTable() {
               <TableCell align="right">{row.status}</TableCell>
               <TableCell align="right">{row.messagecontent}</TableCell>
               <TableCell align="right">{row.priority}</TableCell>
+              <TableCell align="right">{row.action}</TableCell>
             </TableRow>
           ))}
         </TableBody>
